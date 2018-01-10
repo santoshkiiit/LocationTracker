@@ -2,8 +2,8 @@ package com.location.tracker.service;
 
 import java.util.List;
 import com.location.tracker.data.LocationTrace;
-import com.location.tracker.repository.DriverInformation;
-import com.location.tracker.repository.VehicleInformation;
+import com.location.tracker.data.DriverInformation;
+import com.location.tracker.data.VehicleInformation;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

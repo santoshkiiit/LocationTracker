@@ -1,14 +1,16 @@
 package com.location.tracker.repository;
 
 import com.location.tracker.data.DeviceType;
+import com.location.tracker.data.DriverInformation;
 import com.location.tracker.data.LocationTrace;
 import java.util.List;
+
+import com.location.tracker.data.VehicleInformation;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.data.mongodb.core.query.Criteria;
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 import org.springframework.data.mongodb.core.MongoOperations;
-import org.springframework.web.bind.annotation.*;
 
 public class LocationTrackerRepositoryImpl implements LocationTrackerRepository {
 

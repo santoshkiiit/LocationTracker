@@ -1,6 +1,8 @@
 package com.location.tracker.repository;
 
+import com.location.tracker.data.DriverInformation;
 import com.location.tracker.data.LocationTrace;
+import com.location.tracker.data.VehicleInformation;
 
 
 import java.util.List;

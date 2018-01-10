@@ -1,4 +1,4 @@
-package com.location.tracker.repository;
+package com.location.tracker.data;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 

@@ -1,9 +1,8 @@
 package com.location.tracker.service;
 
-import com.location.tracker.data.DeviceType;
 import com.location.tracker.data.LocationTrace;
-import com.location.tracker.repository.DriverInformation;
-import com.location.tracker.repository.VehicleInformation;
+import com.location.tracker.data.DriverInformation;
+import com.location.tracker.data.VehicleInformation;
 import com.location.tracker.web.controller.LocationTrackController;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;

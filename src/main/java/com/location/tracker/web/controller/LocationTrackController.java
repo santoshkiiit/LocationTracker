@@ -1,9 +1,9 @@
 package com.location.tracker.web.controller;
 import com.location.tracker.data.DeviceType;
 import com.location.tracker.data.LocationTrace;
-import com.location.tracker.repository.DriverInformation;
+import com.location.tracker.data.DriverInformation;
 import com.location.tracker.repository.LocationTrackerRepositoryImpl;
-import com.location.tracker.repository.VehicleInformation;
+import com.location.tracker.data.VehicleInformation;
 import java.util.List;
 import java.util.Date;
 import java.text.DateFormat;
