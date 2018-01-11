@@ -4,13 +4,13 @@
 Setup Instructions
 
 Implemented using 
-Java 1.8
-Spring boot 1.5.9
-Mongo - 3.6.1
-Maven
+-Java 1.8
+-Spring boot 1.5.9
+-Mongo - 3.6.1
+-Maven
 
 
-Project startup steps Application:
+Project startup steps:
 
 import project as Spring Starter Project.
 
