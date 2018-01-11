@@ -1,11 +1,20 @@
 package com.location.tracker.data;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * Created by santoshk on 1/9/18.
  */
-@Document(collection="gpsDevice")
+@Document(collection="DeviceInformation")
 public class GPSTrackerDevice {
+
+    @Id
+    Long deviceId;
+    String productInformation ;
+    Integer trackFrequency;
+    String additionalInfo;
+
+
     public Long getDeviceId() {
         return deviceId;
     }
@@ -33,9 +42,18 @@ public class GPSTrackerDevice {
         this.productInformation = productInformation;
     }
 
-    Long deviceId;
-    String productInformation ;
-    Integer trackFrequency;
+
+
+    public String getAdditionalInfo() {
+        return additionalInfo;
+    }
+
+    public void setAdditionalInfo(String additionalInfo) {
+        this.additionalInfo = additionalInfo;
+    }
+
+
+
 
     public GPSTrackerDevice(String productInformation, Long deviceId, Integer trackFrequency) {
         this.productInformation = productInformation;

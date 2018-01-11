@@ -28,7 +28,7 @@ public class LocationTrackerServiceImpl implements LocationTrackerService {
 
 
     @Override
-    @RequestMapping(path="/updateVehicleDevice" ,method = RequestMethod.PUT )
+    @RequestMapping(path="/updateVehicleDevice" ,method = RequestMethod.POST)
     public void updateDeviceForVehicle(@RequestParam("regNumber") String regNumber, @RequestParam("deviceId") Long deviceId){
         LocationTrackController locController = new LocationTrackController();
         locController.updateDeviceForVehicle(regNumber, deviceId);
@@ -39,11 +39,11 @@ public class LocationTrackerServiceImpl implements LocationTrackerService {
     @RequestMapping(path="/insertTracePoint" ,method = RequestMethod.PUT )
     public  void updateDevicelocation(@RequestBody LocationTrace locTrace){
         LocationTrackController controller = new LocationTrackController();
-        controller.insertDeviceTrace(locTrace);
+        controller.updateDevicelocation(locTrace);
     }
 
     @Override
-    @RequestMapping(path="/getDeviceLocation" ,method = RequestMethod.GET )
+    @RequestMapping(path="/deviceLocation" ,method = RequestMethod.GET )
     public List<LocationTrace> getLocationLogForDevice(@RequestParam("deviceId") Long deviceId,  @RequestParam("fromTime") String fromTime, @RequestParam("toTime") String toTime){
 
         LocationTrackController locController = new LocationTrackController();
@@ -51,7 +51,7 @@ public class LocationTrackerServiceImpl implements LocationTrackerService {
     }
 
     @Override
-    @RequestMapping(path="/getMobileLocation" ,method = RequestMethod.GET )
+    @RequestMapping(path="/mobileLocation" ,method = RequestMethod.GET )
     public List<LocationTrace> getLocationLogForMobile(@RequestParam("mobileNumber") String mobileNumber,  @RequestParam("fromTime") String fromTime, @RequestParam("toTime") String toTime){
         LocationTrackController locController = new LocationTrackController();
         return  locController.getLocationLogForMobile(mobileNumber ,fromTime, toTime);

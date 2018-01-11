@@ -29,12 +29,12 @@ LocationTrackerRepositoryImpl locTrackerRepository = new  LocationTrackerReposit
 
 
 
-    public void insertDeviceTrace(LocationTrace trace){
+    public void updateDevicelocation(LocationTrace trace){
         if(trace.getDeviceType().equals(DeviceType.GPS.toString())){
-             locTrackerRepository.addLocationTraceForDevice(trace.getDeviceId(), trace.getDriverId(),trace.getLatitude(), trace.getLongitude(),trace.getLocationName(),trace.getSpeed(),getCurrentTimeStamp());
+             locTrackerRepository.addLocationTraceForDevice(trace.getDeviceId(), trace.getDriverId(),trace.getLatitude(), trace.getLongitude(),trace.getLocationName(),trace.getSpeed(),getCurrentTimeStamp(),trace.getAdditionalInfo());
 
         }else{
-             locTrackerRepository.addLocationTraceForMobile(trace.getMobileNumber(), trace.getDriverId(),trace.getLatitude(),trace.getLongitude(),trace.getLocationName(),trace.getSpeed(),getCurrentTimeStamp());
+             locTrackerRepository.addLocationTraceForMobile(trace.getMobileNumber(), trace.getDriverId(),trace.getLatitude(),trace.getLongitude(),trace.getLocationName(),trace.getSpeed(),getCurrentTimeStamp(),trace.getAdditionalInfo());
 
 
         }

@@ -1,14 +1,19 @@
 package com.location.tracker.data;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
 
 @Document(collection="driverInformation")
 public class DriverInformation {
-
+    @Id
     public long   driverId;
     public String firstName;
+
+    public DriverInformation() {
+    }
+
     public String lastName;
     public String licenseNumber;
     public String mobileNumber;

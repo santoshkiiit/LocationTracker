@@ -1,28 +1,30 @@
 package com.location.tracker.data;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
 @Document(collection="vehicleInformation")
 public class VehicleInformation {
 
+    @Id
     public String regNumber;
-    public Long trackingDeviceId;
+    public Long deviceId;
     public Integer capacity;
-    public Integer driverId;
+    public Long driverId;
 
-    public VehicleInformation(String regNumber, Long trackingDeviceId, Integer capacity, Integer driverId) {
+    public VehicleInformation(String regNumber, Long deviceId, Integer capacity, Long driverId) {
         this.regNumber = regNumber;
-        this.trackingDeviceId = trackingDeviceId;
+        this.deviceId = deviceId;
         this.capacity = capacity;
         this.driverId = driverId;
     }
 
-    public Integer getDriverId() {
+    public Long getDriverId() {
         return driverId;
     }
 
-    public void setDriverId(Integer driverId) {
+    public void setDriverId(Long driverId) {
         this.driverId = driverId;
     }
 
@@ -37,12 +39,15 @@ public class VehicleInformation {
         this.regNumber = regNumber;
     }
 
+    public VehicleInformation() {
+    }
+
     public Long getTrackingDeviceId() {
-        return trackingDeviceId;
+        return deviceId;
     }
 
     public void setTrackingDeviceId(Long trackingDeviceId) {
-        this.trackingDeviceId = trackingDeviceId;
+        this.deviceId = trackingDeviceId;
     }
 
     public Integer getCapacity() {
@@ -53,7 +58,7 @@ public class VehicleInformation {
     public String toString() {
         return "VehicleInformation{" +
                 "regNumber='" + regNumber + '\'' +
-                ", trackingDeviceId='" + trackingDeviceId.toString() + '\'' +
+                ", trackingDeviceId='" + deviceId.toString() + '\'' +
                 ", capacity=" + capacity +
                 ", driverId=" + driverId +
                 '}';
