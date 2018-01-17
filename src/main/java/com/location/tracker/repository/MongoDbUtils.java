@@ -10,16 +10,17 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 
 import com.mongodb.MongoClient;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-
+@Component
 @EnableMongoRepositories(basePackages = "com.location.tracker")
 public class MongoDbUtils {
 
     private static final Log log = LogFactory.getLog(MongoDbUtils.class);
 
-      @Bean
-      public MongoOperations getDbConnection(String dbName){
+
+    public MongoOperations getDbConnection(String dbName){
         MongoOperations mongoOps = new MongoTemplate(new MongoClient(),dbName);
 
         return mongoOps;

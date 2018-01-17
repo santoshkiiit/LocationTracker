@@ -5,6 +5,7 @@ import com.location.tracker.data.DriverInformation;
 import com.location.tracker.data.VehicleInformation;
 import com.location.tracker.web.controller.LocationTrackController;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 
@@ -12,17 +13,17 @@ import java.util.List;
 @RequestMapping(value = "/location/tracker")
 public class LocationTrackerServiceImpl implements LocationTrackerService {
 
+    LocationTrackController locController = new LocationTrackController();
+
     @Override
     @RequestMapping(path="/addDriver" ,method = RequestMethod.PUT )
     public void addDriver(@RequestBody DriverInformation driverInformation){
-        LocationTrackController locController = new LocationTrackController();
         locController.addDriver(driverInformation);
     }
 
     @Override
     @RequestMapping(path="/addVehicle" ,method = RequestMethod.PUT )
     public void addVehicle(@RequestBody VehicleInformation vehicleInformation){
-        LocationTrackController locController = new LocationTrackController();
         locController.addVehicle(vehicleInformation);
     }
 
@@ -30,32 +31,33 @@ public class LocationTrackerServiceImpl implements LocationTrackerService {
     @Override
     @RequestMapping(path="/updateVehicleDevice" ,method = RequestMethod.POST)
     public void updateDeviceForVehicle(@RequestParam("regNumber") String regNumber, @RequestParam("deviceId") Long deviceId){
-        LocationTrackController locController = new LocationTrackController();
         locController.updateDeviceForVehicle(regNumber, deviceId);
     }
 
 
     @Override
     @RequestMapping(path="/insertTracePoint" ,method = RequestMethod.PUT )
-    public  void updateDevicelocation(@RequestBody LocationTrace locTrace){
-        LocationTrackController controller = new LocationTrackController();
-        controller.updateDevicelocation(locTrace);
+    public  String updateDevicelocation(@RequestBody LocationTrace locTrace){
+        return locController.updateDevicelocation(locTrace);
     }
+
+
+
 
     @Override
-    @RequestMapping(path="/deviceLocation" ,method = RequestMethod.GET )
-    public List<LocationTrace> getLocationLogForDevice(@RequestParam("deviceId") Long deviceId,  @RequestParam("fromTime") String fromTime, @RequestParam("toTime") String toTime){
-
+    @RequestMapping(path="/getLog" ,method = RequestMethod.GET )
+    public List<LocationTrace> getLocationLogForMobile(@RequestParam(value = "mobileNumber", required = false) String mobileNumber,@RequestParam(value = "deviceId", required = false)Long deviceId,  @RequestParam("fromTime") String fromTime, @RequestParam("toTime") String toTime){
         LocationTrackController locController = new LocationTrackController();
-        return locController.getLocationLogForDevice(deviceId,fromTime, toTime);
+        if(mobileNumber!=null){
+            return  locController.getLocationLogForMobile(mobileNumber ,fromTime, toTime);
+
+        }else{
+            return  locController.getLocationLogForDevice(deviceId, fromTime, toTime);
+        }
+
     }
 
-    @Override
-    @RequestMapping(path="/mobileLocation" ,method = RequestMethod.GET )
-    public List<LocationTrace> getLocationLogForMobile(@RequestParam("mobileNumber") String mobileNumber,  @RequestParam("fromTime") String fromTime, @RequestParam("toTime") String toTime){
-        LocationTrackController locController = new LocationTrackController();
-        return  locController.getLocationLogForMobile(mobileNumber ,fromTime, toTime);
-    }
+
 
 
 

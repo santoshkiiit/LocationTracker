@@ -5,16 +5,17 @@ import com.location.tracker.data.LocationTrace;
 import com.location.tracker.data.VehicleInformation;
 
 
+import java.util.Date;
 import java.util.List;
 
 public interface LocationTrackerRepository {
 
 
-    void addLocationTraceForDevice(long deviceId, Long driverId, Double latitude,
-                                   Double longitude, String locationName, Integer speed, String currentTimeStamp, String additionalInfo);
+    void addLocationTraceForDevice(Long deviceId, Double latitude,
+                                   Double longitude, String locationName, Integer speed, String currentTimeStamp, String additionalInfo, String regNumber);
 
-    void addLocationTraceForMobile(String mobileNumber, Long driverId, Double latitude,
-                                   Double longitude, String locationName, Integer speed, String currentTimeStamp, String additionalInfo);
+    void addLocationTraceForMobile(String mobileNumber, Double latitude,
+                                   Double longitude, String locationName, Integer speed, String currentTimeStamp, String additionalInfo, String regNumber);
 
     List<LocationTrace> getLocationForDevice(Long deviceId,String fromTime, String toTime);
 

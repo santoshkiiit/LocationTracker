@@ -1,5 +1,6 @@
 package com.location.tracker.service;
 
+import java.util.Date;
 import java.util.List;
 import com.location.tracker.data.LocationTrace;
 import com.location.tracker.data.DriverInformation;
@@ -20,13 +21,8 @@ public interface LocationTrackerService {
     public void updateDeviceForVehicle(@RequestParam("regNumber") String regNumber, @RequestParam("deviceId") Long deviceId);
 
     @RequestMapping(path="/insertTracePoint" ,method = RequestMethod.PUT )
-    public void updateDevicelocation(@RequestBody LocationTrace locTrace);
+    public String updateDevicelocation(@RequestBody LocationTrace locTrace);
 
-    @RequestMapping(path="/deviceLocation" ,method = RequestMethod.GET )
-    public List<LocationTrace> getLocationLogForDevice(@RequestParam("deviceId") Long deviceId, @RequestParam("fromTime") String fromTime, @RequestParam("toTime") String toTime);
-
-    @RequestMapping(path="/mobileLocation" ,method = RequestMethod.GET )
-    public  List<LocationTrace> getLocationLogForMobile(@RequestParam("mobileNumber") String mobileNumber, @RequestParam("fromTime") String fromTime, @RequestParam("toTime") String toTime);
-
-
+    @RequestMapping(path="/getLog" ,method = RequestMethod.GET )
+    List<LocationTrace> getLocationLogForMobile(@RequestParam("mobileNumber") String mobileNumber, @RequestParam("deviceId") Long deviceId, @RequestParam("fromTime") String fromTime, @RequestParam("toTime") String toTime);
 }

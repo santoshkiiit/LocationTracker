@@ -12,30 +12,18 @@ public class LocationTrace {
     public void setAdditionalInfo(String additionalInfo) {
         this.additionalInfo = additionalInfo;
     }
-
-    Long driverId;
     Double longitude;
     Double latitude;
     String locationName;
     Integer speed;
-    String  deviceType;
-    Long deviceId;
-    String mobileNumber;
-    String additionalInfo;
 
-    public LocationTrace(Long driverId, String traceTime, Double longitude, Double latitude, String locationName, Integer speed, String deviceType, Long deviceId, String mobileNumber, String additionalInfo) {
-        this.driverId = driverId;
-        this.traceTime = traceTime;
-        this.longitude = longitude;
-        this.latitude = latitude;
-        this.locationName = locationName;
-        this.speed = speed;
-        this.deviceType = deviceType;
-        this.deviceId = deviceId;
-        this.mobileNumber = mobileNumber;
-        this.additionalInfo = additionalInfo;
+    public String getRegNumber() {
+        return regNumber;
     }
 
+    public void setRegNumber(String regNumber) {
+        this.regNumber = regNumber;
+    }
 
     public String getTraceTime() {
         return traceTime;
@@ -45,32 +33,50 @@ public class LocationTrace {
         this.traceTime = traceTime;
     }
 
+    String  deviceType;
+    Long deviceId;
+    String mobileNumber;
+    String additionalInfo;
     String traceTime;
+    String regNumber;
+
+
+    public LocationTrace(Long driverId, String traceTime, Double longitude, Double latitude, String locationName, Integer speed, String deviceType, Long deviceId, String mobileNumber, String additionalInfo, String regNumber) {
+        this.traceTime = traceTime;
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.locationName = locationName;
+        this.speed = speed;
+        this.deviceType = deviceType;
+        this.deviceId = deviceId;
+        this.mobileNumber = mobileNumber;
+        this.additionalInfo = additionalInfo;
+        this.regNumber = regNumber;
+    }
+
+
+
 
     @Override
     public String toString() {
         return "LocationTrace{" +
-                "driverId=" + driverId +
-                ", deviceId=" + deviceId +
+                 "deviceId=" + deviceId +
                 ", mobileNumber='" + mobileNumber + '\'' +
                 ", longitude=" + longitude +
                 ", latitude=" + latitude +
                 ", locationName='" + locationName + '\'' +
                 ", speed=" + speed +
                 ", deviceType=" + deviceType +
-                "traceTime= "+traceTime+
+                ",traceTime= "+traceTime+
+                ",regNumber= "+regNumber+
                 '}';
     }
 
 
 
-    public Long getDriverId() {
-        return driverId;
-    }
 
-    public void setDriverId(Long driverId) {
-        this.driverId = driverId;
-    }
+
+
 
     public Long getDeviceId() {
         return deviceId;
@@ -100,8 +106,8 @@ public class LocationTrace {
         return latitude;
     }
 
-    public LocationTrace(Long driverId,Long deviceId, Double latitude, Double longitude,  String locationName,Integer speed, String deviceType,  String traceTime, String additionalInfo) {
-        this.driverId = driverId;
+    public LocationTrace(Long deviceId, Double latitude, Double longitude,  String locationName,Integer speed, String deviceType,  String traceTime, String additionalInfo, String regNumber) {
+
         this.longitude = longitude;
         this.latitude = latitude;
         this.speed = speed;
@@ -110,6 +116,7 @@ public class LocationTrace {
         this.deviceId = deviceId;
         this.traceTime =traceTime;
         this.additionalInfo = additionalInfo;
+        this.regNumber = regNumber;
     }
 
     public void setLatitude(Double latitude) {
@@ -135,8 +142,7 @@ public class LocationTrace {
         this.speed = speed;
     }
 
-    public LocationTrace(Long driverId, String mobileNumber, Double latitude, Double longitude , String locationName, Integer speed, String deviceType, String traceTime, String additionalInfo) {
-        this.driverId = driverId;
+    public LocationTrace(String mobileNumber, Double latitude, Double longitude , String locationName, Integer speed, String deviceType, String traceTime, String additionalInfo, String regNumber) {
         this.mobileNumber = mobileNumber;
         this.longitude = longitude;
         this.latitude = latitude;
@@ -145,6 +151,7 @@ public class LocationTrace {
         this.deviceType = deviceType;
         this.traceTime = traceTime;
         this.additionalInfo = additionalInfo;
+        this.regNumber = regNumber;
     }
 
     public String getDeviceType() {

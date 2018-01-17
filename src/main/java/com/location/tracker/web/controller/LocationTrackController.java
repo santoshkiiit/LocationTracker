@@ -4,15 +4,22 @@ import com.location.tracker.data.LocationTrace;
 import com.location.tracker.data.DriverInformation;
 import com.location.tracker.repository.LocationTrackerRepositoryImpl;
 import com.location.tracker.data.VehicleInformation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+
 import java.util.List;
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
+
+@ComponentScan
 public class LocationTrackController {
 
 
-LocationTrackerRepositoryImpl locTrackerRepository = new  LocationTrackerRepositoryImpl();
+    LocationTrackerRepositoryImpl locTrackerRepository = new LocationTrackerRepositoryImpl();
 
     public void addDriver(DriverInformation driverInfo){
         locTrackerRepository.addDriver(driverInfo);
@@ -29,14 +36,16 @@ LocationTrackerRepositoryImpl locTrackerRepository = new  LocationTrackerReposit
 
 
 
-    public void updateDevicelocation(LocationTrace trace){
+    public String updateDevicelocation(LocationTrace trace){
         if(trace.getDeviceType().equals(DeviceType.GPS.toString())){
-             locTrackerRepository.addLocationTraceForDevice(trace.getDeviceId(), trace.getDriverId(),trace.getLatitude(), trace.getLongitude(),trace.getLocationName(),trace.getSpeed(),getCurrentTimeStamp(),trace.getAdditionalInfo());
+             locTrackerRepository.addLocationTraceForDevice(trace.getDeviceId(), trace.getLatitude(), trace.getLongitude(),trace.getLocationName(),trace.getSpeed(),getCurrentTimeStamp(),trace.getAdditionalInfo(),trace.getRegNumber());
+                return "Updated record";
+        }else if(trace.getDeviceType().equals(DeviceType.MOBILE.toString())){
+             locTrackerRepository.addLocationTraceForMobile(trace.getMobileNumber(),trace.getLatitude(),trace.getLongitude(),trace.getLocationName(),trace.getSpeed(),getCurrentTimeStamp(),trace.getAdditionalInfo(),trace.getRegNumber());
+            return "Updated record";
 
         }else{
-             locTrackerRepository.addLocationTraceForMobile(trace.getMobileNumber(), trace.getDriverId(),trace.getLatitude(),trace.getLongitude(),trace.getLocationName(),trace.getSpeed(),getCurrentTimeStamp(),trace.getAdditionalInfo());
-
-
+            return "UPDATE FAILED-- INCORRECT DEVICE TYPE";
         }
     }
 
@@ -55,6 +64,7 @@ LocationTrackerRepositoryImpl locTrackerRepository = new  LocationTrackerReposit
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
         return dateFormat.format(date);
+
     }
 
 

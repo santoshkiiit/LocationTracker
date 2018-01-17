@@ -11,24 +11,22 @@ public class VehicleInformation {
     public String regNumber;
     public Long deviceId;
     public Integer capacity;
-    public Long driverId;
+    public String mobileNumber;
 
-    public VehicleInformation(String regNumber, Long deviceId, Integer capacity, Long driverId) {
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
+
+    public VehicleInformation(String regNumber, Long deviceId, Integer capacity,String mobileNumber) {
         this.regNumber = regNumber;
         this.deviceId = deviceId;
         this.capacity = capacity;
-        this.driverId = driverId;
+        this.mobileNumber = mobileNumber;
     }
-
-    public Long getDriverId() {
-        return driverId;
-    }
-
-    public void setDriverId(Long driverId) {
-        this.driverId = driverId;
-    }
-
-
 
     public String getRegNumber() {
         return regNumber;
@@ -60,7 +58,6 @@ public class VehicleInformation {
                 "regNumber='" + regNumber + '\'' +
                 ", trackingDeviceId='" + deviceId.toString() + '\'' +
                 ", capacity=" + capacity +
-                ", driverId=" + driverId +
                 '}';
     }
 
