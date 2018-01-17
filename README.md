@@ -60,7 +60,7 @@ sample Request:
 	"regNumber":"UN54 BT123",
 	"trackingDeviceId":12344,
 	"capacity":5,
-	"driverId":"67216345"
+	"mobileNumber":"37625471"
 	
 }
 
@@ -92,40 +92,27 @@ Sample Request:
 "locationName":"Test",
 "speed":100,
 "deviceType":"MOBILE",
-"additionalInfo":"numberOfPassengers:3"
+"additionalInfo":"numberOfPassengers:3",
+"regNumber":"GN527AH873"
 }
 
 
 
- 5 . Get Vehicle Location —based on deviceId, fetch location trace points in specified time 
+ 5 . Get Vehicle Location log  — based on deviceId/mobile number, fetch location trace points in specified time 
 Request Type:GET
 
-URL:  /location/tracker/getDeviceLocation
+URL:  /location/tracker/getLog
 
-Request Params: deviceId ,fromTime , toTime
+Request Params: deviceId/mobileNumber ,fromTime , toTime
 
 
 Sample Request:
 
-deviceId:6325463, fromTime:”2018/01/10 19:35:03”, toTime :”2018/01/10 19:39:05”
+deviceId:6325463, fromTime:2018/01/10 19:35:03, toTime :2018/01/10 19:39:05
+mobileNumber=1256326, fromTime=2017/01/17 16:52:19, toTime=2018/01/17 18:52:19
 
 
 
-
-
-  6. Get Vehicle Location — based on mobileNumber, fetch location trace points in specified time 
-
-Request Type:GET
-
-
-
-URL:  /location/tracker/getMobileLocation
-
-Request Params: mobileNumber ,fromTime , toTime
-
-Sample Request:
-
-mobileNumber:”235124523”, fromTime:”2018/01/10 19:35:03”, toTime :”2018/01/10 19:39:05”
 
 
 
