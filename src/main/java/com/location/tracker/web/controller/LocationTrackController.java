@@ -15,11 +15,11 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 
-@ComponentScan
+@Component
 public class LocationTrackController {
 
-
-    LocationTrackerRepositoryImpl locTrackerRepository = new LocationTrackerRepositoryImpl();
+    @Autowired
+    LocationTrackerRepositoryImpl locTrackerRepository;
 
     public void addDriver(DriverInformation driverInfo){
         locTrackerRepository.addDriver(driverInfo);

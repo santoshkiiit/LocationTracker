@@ -20,15 +20,14 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 
-@ComponentScan
+@Component
 @Repository
 public class LocationTrackerRepositoryImpl implements LocationTrackerRepository {
 
 
 
-//    @Autowired
-    MongoDbUtils mongoDbUtils= new MongoDbUtils();
-
+    @Autowired
+    MongoDbUtils mongoDbUtils;
 
 
     @Override

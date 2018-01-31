@@ -4,6 +4,7 @@ import com.location.tracker.data.LocationTrace;
 import com.location.tracker.data.DriverInformation;
 import com.location.tracker.data.VehicleInformation;
 import com.location.tracker.web.controller.LocationTrackController;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,7 +14,8 @@ import java.util.List;
 @RequestMapping(value = "/location/tracker")
 public class LocationTrackerServiceImpl implements LocationTrackerService {
 
-    LocationTrackController locController = new LocationTrackController();
+    @Autowired
+    LocationTrackController locController;
 
     @Override
     @RequestMapping(path="/addDriver" ,method = RequestMethod.PUT )
@@ -47,7 +49,6 @@ public class LocationTrackerServiceImpl implements LocationTrackerService {
     @Override
     @RequestMapping(path="/getLog" ,method = RequestMethod.GET )
     public List<LocationTrace> getLocationLogForMobile(@RequestParam(value = "mobileNumber", required = false) String mobileNumber,@RequestParam(value = "deviceId", required = false)Long deviceId,  @RequestParam("fromTime") String fromTime, @RequestParam("toTime") String toTime){
-        LocationTrackController locController = new LocationTrackController();
         if(mobileNumber!=null){
             return  locController.getLocationLogForMobile(mobileNumber ,fromTime, toTime);
 
